@@ -4,7 +4,7 @@
 	
 	<div class="col-lg-12">
 		<div class="row">
-			<!-- FORM Panel -->
+			<!-- FORM Panel edited -->
 			<div class="col-md-4">
 			<form action="" id="manage-house">
 				<div class="card">
