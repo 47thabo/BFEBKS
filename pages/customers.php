@@ -39,9 +39,14 @@
                                 ?>
                                     <tr>
                                         <td class="text-center"><?php echo $row['customer_id']?></td>
-                                        <td><?php echo $row['fname']. " ".$row['onames']." ".$row['lname']  ?></td>
+                                        <td><?php echo ucwords($row['fname']). " ".ucwords($row['onames'])." ".ucwords($row['lname'])  ?></td>
                                         <td><?php echo $row['address'] ?></td>
-                                        <td><?php echo $row['phone'] ?></td>
+                                        <td><?php echo $row['phone'] ?> 
+                                        <?php 
+                                            if(isset($row['phone2'])) 
+                                                echo " or ".$row['phone2']; 
+                                        ?>
+                                        </td>
                                         <td class="text-right">0</td>
                                         <td class="text-center">
                                             <button class="btn btn-sm btn-outline-primary view_payment" type="button" data-id="<?php echo $row['customer_id'] ?>">View</button>
@@ -53,7 +58,7 @@
 
                                 <?php endwhile; ?>
 
-                                <tr role="row" class="odd">
+                                <!--tr role="row" class="odd">
                                     <td class="text-center sorting_1">1</td>
                                     <td>
                                         Smith, John C </td>
@@ -71,7 +76,7 @@
                                         <button class="btn btn-sm btn-outline-primary edit_tenant" type="button" data-id="2">Edit</button>
                                         <button class="btn btn-sm btn-outline-danger delete_tenant" type="button" data-id="2">Delete</button>
                                     </td>
-                                </tr>
+                                </!--tr>
 
                                 <tr role="row" class="odd">
                                     <td class="text-center sorting_1">1</td>
@@ -93,7 +98,7 @@
                                     </td>
                                 </tr>
 
-                                <tr role="row" class="odd">
+                                <tr-- role="row" class="odd">
                                     <td class="text-center sorting_1">1</td>
                                     <td>
                                         Smith, John C </td>
@@ -111,7 +116,7 @@
                                         <button class="btn btn-sm btn-outline-primary edit_customer" type="button" data-id="2">Edit</button>
                                         <button class="btn btn-sm btn-outline-danger delete_tenant" type="button" data-id="2">Delete</button>
                                     </td>
-                                </tr>
+                                </tr-->
                             </tbody>
                         </table>
                     </div>

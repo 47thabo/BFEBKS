@@ -13,7 +13,7 @@
 		<div class="sidebar-list">
 				<a href="index.php?page=home" class="nav-item nav-home"><span class='icon-field'><i class="fa fa-tachometer-alt "></i></span> Dashboard</a>
 				<a href="index.php?page=customers" class="nav-item nav-customers"><span class='icon-field'><i class="fa fa-user-friends"></i></span>Customers</a>
-				<a href="index.php?page=houses" class="nav-item nav-houses"><span class='icon-field'><i class="fa fa-file-invoice"></i></span> Orders</a>
+				<a href="index.php?page=orders" class="nav-item nav-orders"><span class='icon-field'><i class="fa fa-file-invoice"></i></span> Orders</a>
 				<a href="index.php?page=tenants" class="nav-item nav-tenants"><span class='icon-field'><i class="fa fa-user-friends "></i></span> Schedule</a>
 				<a href="index.php?page=invoices" class="nav-item nav-invoices"><span class='icon-field'><i class="fa fa-file-invoice "></i></span> Transactions</a>
 				<!--a href="index.php?page=reports" class="nav-item nav-reports"><span class='icon-field'><i class="fa fa-list-alt "></i></span> Reports</!--a>
