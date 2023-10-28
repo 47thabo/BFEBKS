@@ -4,7 +4,11 @@
 	
 	<div class="col-lg-12">
 		<div class="row">
+<<<<<<< HEAD
+			<!-- FORM Panel edited by masteeer -->
+=======
 			<!-- FORM Panel re edited -->
+>>>>>>> d47607c842b63193aa15438b266531ef26c8841c
 			<div class="col-md-4">
 			<form action="" id="manage-house">
 				<div class="card">
