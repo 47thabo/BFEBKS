@@ -53,7 +53,7 @@
 				</div>
 			</form>
 			</div>
-			<!-- FORM Panel -->
+			<!-- FORM Panel master-->
 
 			<!-- Table Panel -->
 			<div class="col-md-8">
