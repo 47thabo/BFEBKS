@@ -1,0 +1,9 @@
+Product ID Ranges
+
+1-19: Chest of Drawers
+20-39: Wardropes
+40-59: Kitchen Units
+60-69: Headboards
+70-79: Dressing Tables
+80-89: TV Stands
+90-99: Room Dividers

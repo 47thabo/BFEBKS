@@ -78,7 +78,7 @@
                                 <div class="card-footer">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <a href="index.php?page=tenants" class="text-primary cl-dark-brown float-right">View Orders<span class="fa fa-angle-right"></span></a>
+                                            <a href="index.php?page=orders" class="text-primary cl-dark-brown float-right">View Orders<span class="fa fa-angle-right"></span></a>
                                         </div>
                                     </div>
                                 </div>

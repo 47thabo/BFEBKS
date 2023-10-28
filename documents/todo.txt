@@ -1,0 +1,5 @@
+1. make navbar disapear on narrow screens
+2. prioritize edited rows and highlight them after refresh
+3. highlight delivered orders
+4. include transactions in order view
+5. display message if there are no orders for customers on customer view
