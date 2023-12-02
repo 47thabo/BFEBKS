@@ -54,6 +54,12 @@ if($action == "save_category"){
 		echo $save;
 }
 
+if($action == "save_order"){
+	$save = $crud->save_order();
+	if($save)
+		echo $save;
+}
+
 if($action == "delete_category"){
 	$delete = $crud->delete_category();
 	if($delete)
@@ -97,6 +103,12 @@ if($action == "save_payment"){
 	if($save)
 		echo $save;
 }
+if($action == "delete_payment"){
+	$save = $crud->delete_payment();
+	if($save)
+		echo $save;
+}
+
 if($action == "delete_payment"){
 	$save = $crud->delete_payment();
 	if($save)

@@ -58,63 +58,73 @@ if (isset($_GET['id'])) {
 			<div class="col-md-8">
 
 				<large><b>Orders</b></large>
-				<span class="float-center"><a class="btn btn-primary float-center btn-sm " href="javascript:void(0)"
-						id="edit_tenant">
+				<span class="float-center"><a class="btn btn-primary float-center btn-sm "
+						data-id="<?php echo $customer_id ?>" href="javascript:void(0)" data-dismiss="modal"
+						id="create_order">
 						<i class="fa fa-plus"></i> Create New Order
 					</a></span>
 				<hr>
-				<table class="table table-condensed  table-hover table-bordered">
-					<thead>
-						<tr>
-							<th>Order No</th>
-							<th>Items</th>
-							<th>Balance</th>
-							<th>Dates</th>
-							<th>Action</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php
-						$order = $conn->query("SELECT * FROM orders WHERE customer_id = ".$customer_id);
-						while ($row = $order->fetch_assoc()): ?>
+				<?php
+				$order = $conn->query("SELECT * FROM orders WHERE customer_id = " . $customer_id);
+				if (!$order->fetch_array()) {
+					echo "<h3><i>No orders...</i></h3>";
+				} else {
+
+					?>
+					<table class="table table-condensed  table-hover table-bordered">
+						<thead>
 							<tr>
-								<td>
-									<?php echo $row['order_id']; ?>
-								</td>
-								<td>
-									<?php
-									$items = $conn->query("SELECT * FROM order_items, products WHERE order_items.product_id = products.product_id AND order_items.order_id = " . $row['order_id']);
-									while ($item_row = $items->fetch_assoc()):
-										echo "*" . $item_row['name'] . " " . $item_row['description'] . " (" . $item_row['colour'] . ") <br>";
-									endwhile ?>
-								</td>
-								<td class="text-right">
-									<?php
-									$sum = $conn->query("SELECT sum(price) AS 'sum' FROM order_items WHERE order_id = " . $row['order_id']);
-									$items_sum = $sum->fetch_assoc();
-									?>
-									<button class="btn btn-sm btn-warning view_payment" type="button"
-										data-id="<?php echo $row['customer_id'] ?>">Add
-										Payment</button>
-									<?php echo "R" . $items_sum['sum'] - $row['amount_paid']; ?>
-								</td>
-								<td>
-									<?php
-									echo "Order: " . date("d/M/Y", strtotime($row['order_date']));
-									if (isset($row['delivery_date']))
-										echo '<br>Delivery: ' . date("d/M/Y", strtotime($row['delivery_date']));
-									?>
-								</td>
-								<td class="text-center">
-									<button class="btn btn-sm btn-primary view_payment" type="button"
-										data-id="<?php echo $row['customer_id'] ?>">Open</button>
-									<!--button class="btn btn-sm btn-outline-primary edit_customer" type="button"
-												data-id="<?php echo $row['customer_id'] ?>">Print</!--button-->
-								</td>
+								<th>Order No</th>
+								<th>Items</th>
+								<th>Balance</th>
+								<th>Dates</th>
+								<th>Action</th>
 							</tr>
-						<?php endwhile ?>
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+
+							<?php
+							$order = $conn->query("SELECT * FROM orders WHERE customer_id = " . $customer_id);
+							while ($row = $order->fetch_assoc()): ?>
+								<tr>
+									<td>
+										<?php echo $row['order_id']; ?>
+									</td>
+									<td>
+										<?php
+										$items = $conn->query("SELECT * FROM order_items, products WHERE order_items.product_id = products.product_id AND order_items.order_id = " . $row['order_id']);
+										while ($item_row = $items->fetch_assoc()):
+											echo "*" . $item_row['name'] . " " . $item_row['description'] . " (" . $item_row['colour'] . ") <br>";
+										endwhile ?>
+									</td>
+									<td class="text-right">
+										<?php
+										$sum = $conn->query("SELECT sum(price) AS 'sum' FROM order_items WHERE order_id = " . $row['order_id']);
+										$items_sum = $sum->fetch_assoc();
+										?>
+										<button class="btn btn-sm btn-warning view_payment" type="button"
+											data-id="<?php echo $row['customer_id'] ?>">Add
+											Payment</button>
+										<?php echo "R" . $items_sum['sum'] - $row['amount_paid']; ?>
+									</td>
+									<td>
+										<?php
+										echo "Order: " . date("d/M/Y", strtotime($row['order_date']));
+										if (isset($row['delivery_date']))
+											echo '<br>Delivery: ' . date("d/M/Y", strtotime($row['delivery_date']));
+										?>
+									</td>
+									<td class="text-center">
+										<button class="btn btn-sm btn-primary view_payment" type="button"
+											data-id="<?php echo $row['customer_id'] ?>">Open</button>
+										<!--button class="btn btn-sm btn-outline-primary edit_customer" type="button"
+												data-id="<?php echo $row['customer_id'] ?>">Print</!--button-->
+									</td>
+								</tr>
+							<?php endwhile; ?>
+						</tbody>
+					</table>
+				<?php } ?>
 			</div>
 		</div>
 	</div>
@@ -124,6 +134,11 @@ if (isset($_GET['id'])) {
 		uni_modal("Edit Customer Details", "modals/edit_customer.php?id=" + $(this).attr('data-id'), "mid-large")
 
 	})
+	$('#create_order').click(function () {
+		lg_modal("Create new order", "modals/create_order.php?id=" + $(this).attr('data-id'))
+
+	})
+
 	$('#manage-tenant').submit(function (e) {
 		e.preventDefault()
 		start_load()
