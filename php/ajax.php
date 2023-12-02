@@ -76,11 +76,11 @@ if($action == "delete_house"){
 		echo $save;
 }
 
-if($action == "save_tenant"){
+/*if($action == "save_tenant"){
 	$save = $crud->save_tenant();
 	if($save)
 		echo $save;
-}
+}*/
 
 if($action == "save_customer"){
 	$save = $crud->save_customer();

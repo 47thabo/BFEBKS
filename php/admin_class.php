@@ -323,12 +323,17 @@ class Action
 			$number_of_products = count($_POST["product"]);
 			if ($number_of_products > 0) {
 				for ($i = 0; $i < $number_of_products; $i++) {
-					$product_data = 'price = ' . $_POST["price"][$i];
-					$data2 .= ', colour = ' . $_POST["colour"][$i];
-					$data2 .= ', order_id = ' . $new_order_id;
-					$data2 .= ', description = ' . $_POST["desc"][$i];
-					$data2 .= ', product_id = ' . $_POST["product"][$i];
-					$save2 = $this->db->query("INSERT INTO order_items set $data2");
+					/*$product_data = 'price = ' . $_POST["price"][$i];
+					$product_data .= ', colour = ' . $_POST["colour"][$i];
+					$product_data .= ', order_id = 1000';
+					$product_data .= ', description = ' . $_POST["desc"][$i];
+					$product_data .= ', product_id = ' . $_POST["product"][$i];*/
+					$product_data = 'price = 1000';
+					$product_data .= ', colour = "red"';
+					$product_data .= ', order_id = 1000';
+					$product_data .= ', description = "test desc"';
+					$product_data .= ', product_id = 20';
+					$save2 = $this->db->query("INSERT INTO order_items set $product_data");
 				}
 				echo "Data Inserted";
 			}
