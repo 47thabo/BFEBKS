@@ -335,7 +335,7 @@ class Action
 					$product_data .= ', product_id = 20';
 					$save2 = $this->db->query("INSERT INTO order_items set $product_data");
 				}
-				echo "Data Inserted";
+				//echo "Data Inserted";
 			}
 
 			return 1;

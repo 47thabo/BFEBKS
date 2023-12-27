@@ -86,7 +86,7 @@ if (isset($_GET['id'])) {
             type: 'POST',
             success: function (resp) {
                 if (resp == 1) {
-                    alert_toast("Customer successfully saved.", 'success')
+                    alert_toast("Order successfully saved.", 'success')
                     setTimeout(function () {
                         location.reload()
                     }, 1000)
